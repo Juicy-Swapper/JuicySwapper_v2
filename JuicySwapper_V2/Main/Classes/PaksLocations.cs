@@ -15,13 +15,13 @@ namespace JuicySwapper_V2.Main.Classes
         // IK this whole form is ugly but idc becuase i did it at 2-4 in the morning.
         //
 
-        public static string[] Ucas = new string[] { $"pakchunk10_s22-WindowsClient.ucas", $"pakchunk10_s3-WindowsClient.ucas", $"pakchunk10_s17-WindowsClient.ucas", $"pakchunk10_s4-WindowsClient.ucas", $"pakchunk10_s5-WindowsClient.ucas" };
+        public static string[] Ucas = new string[] { $"pakchunk10_s22-WindowsClient.ucas", $"pakchunk10_s3-WindowsClient.ucas", $"pakchunk10_s17-WindowsClient.ucas", $"pakchunk10_s4-WindowsClient.ucas", $"pakchunk10_s5-WindowsClient.ucas", $"pakchunk10_s21-WindowsClient.ucas" };
 
         public static string paktopath = $"{Fortnite.GetEpicInstallLocations().FirstOrDefault(x => x.AppName == "Fortnite")?.InstallLocation}\\FortniteGame\\Content\\Paks";
 
         public static string fortniteversion = $"{Fortnite.GetEpicInstallLocations().FirstOrDefault(x => x.AppName == "Fortnite")?.AppVersion}";
 
-        public static string[] FortniteFix = new string[] { $"{paktopath}\\{Ucas[0]}", $"{paktopath}\\{Ucas[1]}", $"{paktopath}\\{Ucas[2]}", $"{paktopath}\\{Ucas[3]}", $"{paktopath}\\{Ucas[4]}" };
+        public static string[] FortniteFix = new string[] { $"{paktopath}\\{Ucas[0]}", $"{paktopath}\\{Ucas[1]}", $"{paktopath}\\{Ucas[2]}", $"{paktopath}\\{Ucas[3]}", $"{paktopath}\\{Ucas[4]}", $"{paktopath}\\{Ucas[5]}" };
 
         public static string swapper = $"{Directory.GetCurrentDirectory()}\\PakTemps";
 
