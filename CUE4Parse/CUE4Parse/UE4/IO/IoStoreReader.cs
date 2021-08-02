@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
-using System.Windows.Forms;
 using CUE4Parse.Encryption.Aes;
 using CUE4Parse.FileProvider;
 using CUE4Parse.UE4.Exceptions;

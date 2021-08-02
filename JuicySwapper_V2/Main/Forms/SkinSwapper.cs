@@ -14,6 +14,7 @@ using System.Net;
 using JuicySwapper_V2.IO;
 using System.IO;
 using JuicySwapper_V2.Main.Classes;
+using System.Diagnostics;
 
 namespace JuicySwapper_V2.Main.Forms
 {
@@ -35,11 +36,11 @@ namespace JuicySwapper_V2.Main.Forms
             foreach(var cosmetic in parsed.skins)
             {
                 string skinsname = cosmetic.name;
-                Text = skinsname.Replace("_", " ").ToString();
                 if (skinsname.ToString().Contains(vars.item))
                 {
                     string swapsicon = cosmetic.swapicon;
                     pictureBox1.ImageLocation = swapsicon.ToString();
+                    Text = skinsname.Replace("_", " ").ToString();
                 }
             }
         }
@@ -78,7 +79,7 @@ namespace JuicySwapper_V2.Main.Forms
 
                         var utocTucas = CUE4Parse.Kaede.PakFile.Replace("utoc", "ucas");
 
-                        bool SwapUassetBool = Researcher.SwapUasset($"D:\\Games\\Fortnite\\FortniteGame\\Content\\Paks\\{utocTucas.Replace("10", "100")}", CUE4Parse.Kaede.offset, dataswap);
+                        bool SwapUassetBool = Researcher.SwapUasset($"C:\\Games\\Fortnite\\FortniteGame\\Content\\Paks\\{utocTucas.Replace("10", "100")}", CUE4Parse.Kaede.offset, dataswap);
                         if (SwapUassetBool)
                             LogBox.Text += $"[LOG] Uasset Successfully added\n";
                         else
@@ -105,7 +106,6 @@ namespace JuicySwapper_V2.Main.Forms
             dynamic parsed = JObject.Parse(ProgramClient.DownloadString("https://juicyswapper.netlify.app/api/v1/Skins.json"));
 
             LogBox.Text += $"[LOG] Starting...\n";
-
             foreach (var cosmetic in parsed.skins)
             {
                 string skinsname = cosmetic.name;
@@ -141,7 +141,7 @@ namespace JuicySwapper_V2.Main.Forms
 
                         var utocTucas = CUE4Parse.Kaede.PakFile.Replace("utoc", "ucas");
 
-                        bool SwapUassetBool = Researcher.SwapUasset($"D:\\Games\\Fortnite\\FortniteGame\\Content\\Paks\\{utocTucas.Replace("10", "100")}", CUE4Parse.Kaede.offset, dataswap);
+                        bool SwapUassetBool = Researcher.SwapUasset($"C:\\Games\\Fortnite\\FortniteGame\\Content\\Paks\\{utocTucas.Replace("10", "100")}", CUE4Parse.Kaede.offset, dataswap);
                         if (SwapUassetBool)
                             LogBox.Text += $"[LOG] Uasset Successfully added\n";
                         else
@@ -155,6 +155,7 @@ namespace JuicySwapper_V2.Main.Forms
                    }
 
                     LogBox.Text += $"[LOG] Done!\n";
+
                 }
             }
         }
