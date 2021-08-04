@@ -72,6 +72,52 @@ namespace JuicySwapper_V2.IO
             }
         }
 
+        public static bool ConvertInUasset(string file, byte[] convert, byte[] revert)
+        {
+            byte[] a = convert;
+            byte[] b = revert;
+            if ((convert.Length - revert.Length) >= 0)
+            {
+                for (int i = 0; i < convert.Length - revert.Length; i++)
+                {
+                    b = c(b, 0);
+                }
+
+                if (File.Exists(file))
+                {
+                    Stream s = File.Open(file, FileMode.Open, FileAccess.ReadWrite);
+
+                    long offset;
+
+                    var task = Task.Run(() => Find(s, 0, a, 0));
+                    if (task.Wait(TimeSpan.FromSeconds(10)))
+                    {
+                        offset = task.Result;
+                    }
+                    else
+                        offset = 0;
+
+                    s.Close();
+
+                    BinaryWriter binaryWriter = new BinaryWriter(File.Open(file, FileMode.Open, FileAccess.ReadWrite));
+                    binaryWriter.BaseStream.Seek(offset, SeekOrigin.Begin);
+                    binaryWriter.Write(b);
+                    binaryWriter.Close();
+
+                    return true;
+                }
+                else
+                {
+
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private static byte[] c(byte[] mahOldByteArray, byte newByte)
         {
             var mahByteArray = new List<byte>();

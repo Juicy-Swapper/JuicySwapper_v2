@@ -6,8 +6,8 @@
       "version": "5.0.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\liike\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\liike\\.nuget\\packages",
+      "C:\\Users\\jmass\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\jmass\\.nuget\\packages",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "configProperties": {

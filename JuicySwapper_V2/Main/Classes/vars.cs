@@ -9,5 +9,6 @@ namespace JuicySwapper_V2
     public static class vars
     {
         public static string item = "";
+        public static string optionskin = "";
     }
 }

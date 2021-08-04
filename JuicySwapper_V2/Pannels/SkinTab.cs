@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -26,24 +27,51 @@ namespace JuicySwapper_V2.Pannels
             new SkinSwapper().ShowDialog();
         }
 
+        private void buttonOn_Options_Click(object sender, EventArgs e)
+        {
+            vars.item = ((Bunifu.Framework.UI.BunifuImageButton)sender).Name;
+            new Options().ShowDialog();
+        }
+
         private void SkinTab_Load(object sender, EventArgs e)
         {
             WebClient ProgramClient = new();
 
-            dynamic parsed = JObject.Parse(ProgramClient.DownloadString("https://juicyswapper.netlify.app/api/v1/Skins.json"));
+            dynamic parsed = JObject.Parse(File.ReadAllText("Api/Skins.json"));
 
             foreach (var Cosmetic in parsed.skins)
             {
+                string NewName = Cosmetic.name;
+                NewName = NewName.Replace("_", " ").ToLower();
+                //MessageBox.Show(NewName);
+
+                //PictureBox newPic = new();
                 Bunifu.Framework.UI.BunifuImageButton newPic = new Bunifu.Framework.UI.BunifuImageButton();
+
+                if (NewName.Contains("options"))
+                {
+                    newPic.Click += buttonOn_Options_Click;
+                }
+                else
+                {
+                    newPic.Click += buttonOn_Click;
+                }
+
+                Panel panelA = new Panel
+                {
+                    Size = new System.Drawing.Size(74, 74),
+                    BackColor = Color.Transparent
+                };
+
                 newPic.ImageLocation = Cosmetic.icon;
                 newPic.Name = Cosmetic.name;
                 Cursor = Cursors.Hand;
                 newPic.SizeMode = PictureBoxSizeMode.Zoom;
                 newPic.Size = new Size(71, 71);
-                newPic.ImageActive = null;
+                //newPic.ImageActive = null;
                 newPic.BackColor = Color.Transparent;
-                newPic.Click += buttonOn_Click;
-                SkinDisplayIcons.Controls.Add(newPic);
+                panelA.Controls.Add(newPic);
+                SkinDisplayIcons.Controls.Add(panelA);
             }
         }
     }

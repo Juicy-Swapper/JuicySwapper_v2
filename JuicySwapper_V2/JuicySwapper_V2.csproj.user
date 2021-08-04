@@ -4,6 +4,9 @@
     <Compile Update="Main\Forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Main\Forms\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Main\Forms\PaksSorter.cs">
       <SubType>Form</SubType>
     </Compile>

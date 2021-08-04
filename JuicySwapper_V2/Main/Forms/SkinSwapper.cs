@@ -31,7 +31,8 @@ namespace JuicySwapper_V2.Main.Forms
 
 
             WebClient ProgramClient = new();
-            dynamic parsed = JObject.Parse(ProgramClient.DownloadString("https://juicyswapper.netlify.app/api/v1/Skins.json"));
+
+            dynamic parsed = JObject.Parse(File.ReadAllText("Api/Skins.json"));
 
             foreach(var cosmetic in parsed.skins)
             {
@@ -47,9 +48,7 @@ namespace JuicySwapper_V2.Main.Forms
 
         private void RevertBtn_Click(object sender, EventArgs e)
         {
-            WebClient ProgramClient = new();
-
-            dynamic parsed = JObject.Parse(ProgramClient.DownloadString("https://juicyswapper.netlify.app/api/v1/Skins.json"));
+            dynamic parsed = JObject.Parse(File.ReadAllText("Api/Skins.json"));
 
             LogBox.Text += $"[LOG] Starting...\n";
 
@@ -79,7 +78,7 @@ namespace JuicySwapper_V2.Main.Forms
 
                         var utocTucas = CUE4Parse.Kaede.PakFile.Replace("utoc", "ucas");
 
-                        bool SwapUassetBool = Researcher.SwapUasset($"C:\\Games\\Fortnite\\FortniteGame\\Content\\Paks\\{utocTucas.Replace("10", "100")}", CUE4Parse.Kaede.offset, dataswap);
+                        bool SwapUassetBool = Researcher.SwapUasset($"{Fortnite.GetEpicInstallLocations().FirstOrDefault(x => x.AppName == "Fortnite")?.InstallLocation}\\FortniteGame\\Content\\Paks\\{utocTucas.Replace("10", "100")}", CUE4Parse.Kaede.offset, dataswap);
                         if (SwapUassetBool)
                             LogBox.Text += $"[LOG] Uasset Successfully added\n";
                         else
@@ -103,7 +102,7 @@ namespace JuicySwapper_V2.Main.Forms
         {
             WebClient ProgramClient = new();
 
-            dynamic parsed = JObject.Parse(ProgramClient.DownloadString("https://juicyswapper.netlify.app/api/v1/Skins.json"));
+            dynamic parsed = JObject.Parse(File.ReadAllText("Api/Skins.json"));
 
             LogBox.Text += $"[LOG] Starting...\n";
             foreach (var cosmetic in parsed.skins)
@@ -128,11 +127,24 @@ namespace JuicySwapper_V2.Main.Forms
                             
                         foreach (var swap in asset.swaps)
                         {
-                            string swap1 = swap.search;
-                            string swap2 = swap.replace;
-                            bool swapbool = Researcher.ConvertInUasset(mainasset, swap1.ToString(), swap2.ToString());
-                            if (swapbool)
-                                LogBox.Text += $"[LOG] {swap.log}\n";
+                            string Researchertemp = swap.Researcher;
+                            if (Researchertemp.ToLower().ToString() == "string")
+                            {
+                                string swap1 = swap.search;
+                                string swap2 = swap.replace;
+
+                                bool swapbool = Researcher.ConvertInUasset(mainasset, swap1.ToString(), swap2.ToString());
+                                if (swapbool)
+                                    LogBox.Text += $"[LOG] {swap.log}\n";
+                            }
+                            else if (Researchertemp.ToLower().ToString() == "byte")
+                            {
+                                byte[] swap1 = swap.search;
+                                byte[] swap2 = swap.replace;
+                                bool swapbool = Researcher.ConvertInUasset(mainasset, swap1, swap2);
+                                if (swapbool)
+                                    LogBox.Text += $"[LOG] {swap.log}\n";
+                            }
                         }
 
                         Oodle.Oodle.Compress(mainasset, mainasset + ".Compressed");
@@ -141,7 +153,7 @@ namespace JuicySwapper_V2.Main.Forms
 
                         var utocTucas = CUE4Parse.Kaede.PakFile.Replace("utoc", "ucas");
 
-                        bool SwapUassetBool = Researcher.SwapUasset($"C:\\Games\\Fortnite\\FortniteGame\\Content\\Paks\\{utocTucas.Replace("10", "100")}", CUE4Parse.Kaede.offset, dataswap);
+                        bool SwapUassetBool = Researcher.SwapUasset($"{Fortnite.GetEpicInstallLocations().FirstOrDefault(x => x.AppName == "Fortnite")?.InstallLocation}\\FortniteGame\\Content\\Paks\\{utocTucas.Replace("10", "100")}", CUE4Parse.Kaede.offset, dataswap);
                         if (SwapUassetBool)
                             LogBox.Text += $"[LOG] Uasset Successfully added\n";
                         else
