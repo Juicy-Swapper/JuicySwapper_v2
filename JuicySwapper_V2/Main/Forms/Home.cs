@@ -36,8 +36,8 @@ namespace JuicySwapper_V2
 
             File.WriteAllText("Api/Skins.json", json);
 
-            PaksSorter a = new();
-            a.ShowDialog();
+            //PaksSorter a = new();
+            //a.ShowDialog();
         }
     }
 }

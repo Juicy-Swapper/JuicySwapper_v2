@@ -146,3 +146,5 @@ E:\JuicySwapper_V2\obj\Debug\net5.0-windows\JuicySwapper_V2.Main.Forms.Options.r
 E:\JuicySwapper_V2\obj\Debug\net5.0-windows\JuicySwapper_V2.Main.Forms.SkinSwapperOptions.resources
 C:\Users\liike\Documents\GitHub\JuicySwapper_v2\JuicySwapper_v2\JuicySwapper_V2\obj\Debug\net5.0-windows\JuicySwapper_V2.Main.Forms.Options.resources
 C:\Users\liike\Documents\GitHub\JuicySwapper_v2\JuicySwapper_v2\JuicySwapper_V2\obj\Debug\net5.0-windows\JuicySwapper_V2.Main.Forms.SkinSwapperOptions.resources
+C:\Users\User\Desktop\Juicy\github\JuicySwapper_v2\JuicySwapper_V2\obj\Debug\net5.0-windows\JuicySwapper_V2.Main.Forms.Options.resources
+C:\Users\User\Desktop\Juicy\github\JuicySwapper_v2\JuicySwapper_V2\obj\Debug\net5.0-windows\JuicySwapper_V2.Main.Forms.SkinSwapperOptions.resources

@@ -23,23 +23,23 @@ namespace JuicySwapper_V2.Pannels
 
         private void buttonOn_Click(object sender, EventArgs e)
         {
+            vars.JsonRead = "Api\\Skins.json";
             vars.item = ((Bunifu.Framework.UI.BunifuImageButton)sender).Name;
             new SkinSwapper().ShowDialog();
         }
 
         private void buttonOn_Options_Click(object sender, EventArgs e)
         {
+            vars.JsonRead = "Api\\Skins.json";
             vars.item = ((Bunifu.Framework.UI.BunifuImageButton)sender).Name;
             new Options().ShowDialog();
         }
 
         private void SkinTab_Load(object sender, EventArgs e)
         {
-            WebClient ProgramClient = new();
+            dynamic parsed = JObject.Parse(File.ReadAllText("Api\\Skins.json"));
 
-            dynamic parsed = JObject.Parse(File.ReadAllText("Api/Skins.json"));
-
-            foreach (var Cosmetic in parsed.skins)
+            foreach (var Cosmetic in parsed.items)
             {
                 string NewName = Cosmetic.name;
                 NewName = NewName.Replace("_", " ").ToLower();

@@ -29,9 +29,9 @@ namespace JuicySwapper_V2.Main.Forms
             MsM.ColorScheme = new ColorScheme(Primary.Pink200, Primary.Grey900, Primary.Grey900,
                 Accent.DeepOrange100, TextShade.WHITE);
 
-            dynamic parsed = JObject.Parse(File.ReadAllText("Api/Skins.json"));
+            dynamic parsed = JObject.Parse(File.ReadAllText(vars.JsonRead.ToString()));
 
-            foreach(var cosmetic in parsed.skins)
+            foreach(var cosmetic in parsed.items)
             {
                 string skinsname = cosmetic.name;
                 if (skinsname.ToString().Contains(vars.item))
@@ -53,11 +53,12 @@ namespace JuicySwapper_V2.Main.Forms
 
         private void RevertBtn_Click(object sender, EventArgs e)
         {
+            LogBox.Clear();
             LogBox.Text += $"[LOG] Starting...\n";
 
-            dynamic parsed = JObject.Parse(File.ReadAllText("Api/Skins.json"));
+            dynamic parsed = JObject.Parse(File.ReadAllText(vars.JsonRead.ToString()));
 
-            foreach (var cosmetic in parsed.skins)
+            foreach (var cosmetic in parsed.items)
             {
                 string skinsname = cosmetic.name;
                 if (skinsname.ToString().Contains(vars.item))
@@ -112,11 +113,12 @@ namespace JuicySwapper_V2.Main.Forms
 
         private void ConvertBtn_Click(object sender, EventArgs e)
         {
+            LogBox.Clear();
             LogBox.Text += $"[LOG] Starting...\n";
 
-            dynamic parsed = JObject.Parse(File.ReadAllText("Api/Skins.json"));
+            dynamic parsed = JObject.Parse(File.ReadAllText(vars.JsonRead.ToString()));
 
-            foreach (var cosmetic in parsed.skins)
+            foreach (var cosmetic in parsed.items)
             {
                 string skinsname = cosmetic.name;
                 if (skinsname.ToString().Contains(vars.item))

@@ -19,7 +19,7 @@ namespace JuicySwapper_V2.Main.Forms
         private void buttonOn_Click(object sender, EventArgs e)
         {
             vars.optionskin = ((Bunifu.Framework.UI.BunifuImageButton)sender).Name;
-            vars.item = Text;
+            vars.item = Text.Replace(" ", "_");
             new SkinSwapperOptions().ShowDialog();
         }
 
@@ -32,18 +32,17 @@ namespace JuicySwapper_V2.Main.Forms
             MsM.ColorScheme = new ColorScheme(Primary.Pink200, Primary.Grey900, Primary.Grey900,
                 Accent.DeepOrange100, TextShade.WHITE);
 
-            dynamic parsed = JObject.Parse(File.ReadAllText("Api/Skins.json"));
+            dynamic parsed = JObject.Parse(File.ReadAllText(vars.JsonRead.ToString()));
 
             int SkinsItems = 0;
 
-            foreach (var cosmetic in parsed.skins)
+            foreach (var cosmetic in parsed.items)
             {
                 string skinsname = cosmetic.name;
-                
 
                 if (skinsname.ToString().Contains(vars.item))
                 {
-                    Text = skinsname.ToString();
+                    Text = skinsname.ToString().Replace("_", " ");
                     foreach (var options in cosmetic.Options)
                     {
                         SkinsItems += 1;
@@ -52,6 +51,15 @@ namespace JuicySwapper_V2.Main.Forms
                         {
                             Size = new System.Drawing.Size(124, 124),
                             BackColor = Color.Transparent
+                        };
+
+                        Label labelA = new Label
+                        {
+                            Size = new Size(35, 10),
+                            BackColor = Color.Transparent,
+                            TextAlign = ContentAlignment.MiddleCenter,
+                            Text = null,
+                            ForeColor = Color.Transparent
                         };
 
                         Bunifu.Framework.UI.BunifuImageButton newPic = new();
@@ -67,6 +75,7 @@ namespace JuicySwapper_V2.Main.Forms
                         newPic.Click += buttonOn_Click;
                         panelA.Controls.Add(newPic);
                         SkinDisplayIcons.Controls.Add(panelA);
+                        SkinDisplayIcons.Controls.Add(labelA);
                     }
                 }
             }
