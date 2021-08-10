@@ -36,13 +36,21 @@ namespace JuicySwapper_V2
             this.DashBoredTab = new System.Windows.Forms.TabPage();
             this.SkinsTab = new System.Windows.Forms.TabPage();
             this.skinTab1 = new JuicySwapper_V2.Pannels.SkinTab();
-            this.PickaxesTab = new System.Windows.Forms.TabPage();
+            this.PickaxesTabbb = new System.Windows.Forms.TabPage();
+            this.pickaxeTab1 = new JuicySwapper_V2.Pannels.PickaxeTab();
             this.BackblingsTab = new System.Windows.Forms.TabPage();
+            this.backBlingTab1 = new JuicySwapper_V2.Pannels.BackBlingTab();
             this.EmotesTab = new System.Windows.Forms.TabPage();
+            this.emoteTab1 = new JuicySwapper_V2.Pannels.EmoteTab();
             this.MiscTab = new System.Windows.Forms.TabPage();
+            this.miscTab1 = new JuicySwapper_V2.Pannels.MiscTab();
             this.SettingsTab = new System.Windows.Forms.TabPage();
             this.materialTabControl1.SuspendLayout();
             this.SkinsTab.SuspendLayout();
+            this.PickaxesTabbb.SuspendLayout();
+            this.BackblingsTab.SuspendLayout();
+            this.EmotesTab.SuspendLayout();
+            this.MiscTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabIcons
@@ -62,7 +70,7 @@ namespace JuicySwapper_V2
             // 
             this.materialTabControl1.Controls.Add(this.DashBoredTab);
             this.materialTabControl1.Controls.Add(this.SkinsTab);
-            this.materialTabControl1.Controls.Add(this.PickaxesTab);
+            this.materialTabControl1.Controls.Add(this.PickaxesTabbb);
             this.materialTabControl1.Controls.Add(this.BackblingsTab);
             this.materialTabControl1.Controls.Add(this.EmotesTab);
             this.materialTabControl1.Controls.Add(this.MiscTab);
@@ -106,24 +114,35 @@ namespace JuicySwapper_V2
             this.skinTab1.BackColor = System.Drawing.Color.Transparent;
             this.skinTab1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.skinTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.skinTab1.Location = new System.Drawing.Point(3, 3);
+            this.skinTab1.Location = new System.Drawing.Point(0, 0);
             this.skinTab1.Name = "skinTab1";
             this.skinTab1.Size = new System.Drawing.Size(890, 300);
             this.skinTab1.TabIndex = 0;
             // 
-            // PickaxesTab
+            // PickaxesTabbb
             // 
-            this.PickaxesTab.ImageKey = "Pickaxe.png";
-            this.PickaxesTab.Location = new System.Drawing.Point(4, 39);
-            this.PickaxesTab.Name = "PickaxesTab";
-            this.PickaxesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.PickaxesTab.Size = new System.Drawing.Size(896, 306);
-            this.PickaxesTab.TabIndex = 1;
-            this.PickaxesTab.Text = "Pickaxes";
-            this.PickaxesTab.UseVisualStyleBackColor = true;
+            this.PickaxesTabbb.Controls.Add(this.pickaxeTab1);
+            this.PickaxesTabbb.ImageKey = "Pickaxe.png";
+            this.PickaxesTabbb.Location = new System.Drawing.Point(4, 39);
+            this.PickaxesTabbb.Name = "PickaxesTabbb";
+            this.PickaxesTabbb.Padding = new System.Windows.Forms.Padding(3);
+            this.PickaxesTabbb.Size = new System.Drawing.Size(896, 306);
+            this.PickaxesTabbb.TabIndex = 1;
+            this.PickaxesTabbb.Text = "Pickaxes";
+            this.PickaxesTabbb.UseVisualStyleBackColor = true;
+            // 
+            // pickaxeTab1
+            // 
+            this.pickaxeTab1.BackColor = System.Drawing.Color.Transparent;
+            this.pickaxeTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pickaxeTab1.Location = new System.Drawing.Point(0, 0);
+            this.pickaxeTab1.Name = "pickaxeTab1";
+            this.pickaxeTab1.Size = new System.Drawing.Size(890, 300);
+            this.pickaxeTab1.TabIndex = 0;
             // 
             // BackblingsTab
             // 
+            this.BackblingsTab.Controls.Add(this.backBlingTab1);
             this.BackblingsTab.ImageKey = "Backbling.png";
             this.BackblingsTab.Location = new System.Drawing.Point(4, 39);
             this.BackblingsTab.Name = "BackblingsTab";
@@ -132,8 +151,18 @@ namespace JuicySwapper_V2
             this.BackblingsTab.Text = "BackBlings";
             this.BackblingsTab.UseVisualStyleBackColor = true;
             // 
+            // backBlingTab1
+            // 
+            this.backBlingTab1.BackColor = System.Drawing.Color.Transparent;
+            this.backBlingTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backBlingTab1.Location = new System.Drawing.Point(0, 0);
+            this.backBlingTab1.Name = "backBlingTab1";
+            this.backBlingTab1.Size = new System.Drawing.Size(896, 306);
+            this.backBlingTab1.TabIndex = 0;
+            // 
             // EmotesTab
             // 
+            this.EmotesTab.Controls.Add(this.emoteTab1);
             this.EmotesTab.ImageKey = "Emote.png";
             this.EmotesTab.Location = new System.Drawing.Point(4, 39);
             this.EmotesTab.Name = "EmotesTab";
@@ -142,8 +171,18 @@ namespace JuicySwapper_V2
             this.EmotesTab.Text = "Emotes";
             this.EmotesTab.UseVisualStyleBackColor = true;
             // 
+            // emoteTab1
+            // 
+            this.emoteTab1.BackColor = System.Drawing.Color.Transparent;
+            this.emoteTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emoteTab1.Location = new System.Drawing.Point(0, 0);
+            this.emoteTab1.Name = "emoteTab1";
+            this.emoteTab1.Size = new System.Drawing.Size(896, 306);
+            this.emoteTab1.TabIndex = 0;
+            // 
             // MiscTab
             // 
+            this.MiscTab.Controls.Add(this.miscTab1);
             this.MiscTab.ImageKey = "Wrap.png";
             this.MiscTab.Location = new System.Drawing.Point(4, 39);
             this.MiscTab.Name = "MiscTab";
@@ -151,6 +190,14 @@ namespace JuicySwapper_V2
             this.MiscTab.TabIndex = 4;
             this.MiscTab.Text = "Misc";
             this.MiscTab.UseVisualStyleBackColor = true;
+            // 
+            // miscTab1
+            // 
+            this.miscTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.miscTab1.Location = new System.Drawing.Point(0, 0);
+            this.miscTab1.Name = "miscTab1";
+            this.miscTab1.Size = new System.Drawing.Size(896, 306);
+            this.miscTab1.TabIndex = 0;
             // 
             // SettingsTab
             // 
@@ -177,6 +224,10 @@ namespace JuicySwapper_V2
             this.Text = "🧃 • Juicy Swapper";
             this.materialTabControl1.ResumeLayout(false);
             this.SkinsTab.ResumeLayout(false);
+            this.PickaxesTabbb.ResumeLayout(false);
+            this.BackblingsTab.ResumeLayout(false);
+            this.EmotesTab.ResumeLayout(false);
+            this.MiscTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -186,13 +237,17 @@ namespace JuicySwapper_V2
         private System.Windows.Forms.ImageList TabIcons;
         private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
         private System.Windows.Forms.TabPage SkinsTab;
-        private System.Windows.Forms.TabPage PickaxesTab;
+        private System.Windows.Forms.TabPage PickaxesTabbb;
         private System.Windows.Forms.TabPage BackblingsTab;
         private System.Windows.Forms.TabPage EmotesTab;
         private System.Windows.Forms.TabPage MiscTab;
         private System.Windows.Forms.TabPage DashBoredTab;
         private Pannels.SkinTab skinTab1;
         private System.Windows.Forms.TabPage SettingsTab;
+        private Pannels.PickaxeTab pickaxeTab1;
+        private Pannels.BackBlingTab backBlingTab1;
+        private Pannels.EmoteTab emoteTab1;
+        private Pannels.MiscTab miscTab1;
     }
 }
 

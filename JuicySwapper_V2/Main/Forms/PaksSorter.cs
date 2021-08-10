@@ -22,6 +22,8 @@ namespace JuicySwapper_V2
 
             CheckForIllegalCrossThreadCalls = false;
 
+            Region = Region.FromHrgn(Ui.Round.CreateRoundRectRgn(0, 0, Width, Height, 14, 14));
+
             var MsM = MaterialSkinManager.Instance;
             MsM.AddFormToManage(this);
             MsM.Theme = MaterialSkinManager.Themes.DARK;
@@ -33,7 +35,7 @@ namespace JuicySwapper_V2
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Textlb.Text = "Please wait untill we sort out your paks.\nPlease be pationt as this might take up to a minite or two\nThis will auto close once everting is done!\nEnjoy Swapping - Juicy Team.";
+            Textlb.Text = "Please wait untill we sort out your paks.\nPlease be pationt as this might take up to a minite or two\nThis will auto close once everting is done!\nThis will take longer if your on a hdd.\nEnjoy Swapping - Juicy Team.";
 
             PaksLocations.pastintem();
 

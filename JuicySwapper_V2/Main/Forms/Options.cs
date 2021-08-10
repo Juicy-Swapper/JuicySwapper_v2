@@ -79,6 +79,9 @@ namespace JuicySwapper_V2.Main.Forms
                     }
                 }
             }
+
+            Region = Region.FromHrgn(Ui.Round.CreateRoundRectRgn(0, 0, Width, Height, 14, 14));
+
         }
     }
 }

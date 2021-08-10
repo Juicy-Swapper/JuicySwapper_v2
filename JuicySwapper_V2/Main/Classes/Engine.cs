@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using CUE4Parse.UE4.Objects.Core.Misc;
 using System.Text;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace JuicySwapper_V2.IO
 {
@@ -62,6 +63,23 @@ namespace JuicySwapper_V2.IO
             dynamic parse = JObject.Parse(new WebClient().DownloadString("https://benbot.app/api/v1/aes"));
             return parse.mainKey;
         }
+    }
+}
+
+namespace JuicySwapper_V2.Ui
+{
+    class Round
+    {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        public static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,
+            int nTopRect,
+            int nRightRect,
+            int nBottomRect,
+            int nWidthEllipse,
+            int nHeightEllipse
+        );
     }
 }
 

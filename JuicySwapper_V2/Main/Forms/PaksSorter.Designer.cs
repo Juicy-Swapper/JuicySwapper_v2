@@ -43,16 +43,16 @@ namespace JuicySwapper_V2
             this.Textlb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Textlb.Location = new System.Drawing.Point(6, 73);
             this.Textlb.Name = "Textlb";
-            this.Textlb.Size = new System.Drawing.Size(402, 34);
+            this.Textlb.Size = new System.Drawing.Size(402, 51);
             this.Textlb.TabIndex = 2;
             this.Textlb.Text = "Looks like your paks are all good. Now redirecting to swapper! \r\nEnjoy Swapping -" +
-    " Juicy Team.";
+    " Juicy Team. Please do not close down.\r\nThis will take longer if your on a hdd.";
             // 
             // PaksSorter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 150);
+            this.ClientSize = new System.Drawing.Size(390, 169);
             this.Controls.Add(this.Textlb);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

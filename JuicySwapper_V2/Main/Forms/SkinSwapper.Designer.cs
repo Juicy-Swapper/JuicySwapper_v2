@@ -98,7 +98,7 @@ namespace JuicySwapper_V2.Main.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 233);
+            this.ClientSize = new System.Drawing.Size(531, 239);
             this.Controls.Add(this.LogBox);
             this.Controls.Add(this.RevertBtn);
             this.Controls.Add(this.ConvertBtn);

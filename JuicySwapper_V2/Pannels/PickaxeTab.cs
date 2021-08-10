@@ -7,37 +7,36 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JuicySwapper_V2.Pannels
 {
-    public partial class SkinTab : UserControl
+    public partial class PickaxeTab : UserControl
     {
-        public SkinTab()
+        public PickaxeTab()
         {
             InitializeComponent();
         }
 
         private void buttonOn_Click(object sender, EventArgs e)
         {
-            vars.JsonRead = "Api\\Skins.json";
+            vars.JsonRead = "Api\\Pickaxes.json";
             vars.item = ((Bunifu.Framework.UI.BunifuImageButton)sender).Name;
             new SkinSwapper().ShowDialog();
         }
 
         private void buttonOn_Options_Click(object sender, EventArgs e)
         {
-            vars.JsonRead = "Api\\Skins.json";
+            vars.JsonRead = "Api\\Pickaxes.json";
             vars.item = ((Bunifu.Framework.UI.BunifuImageButton)sender).Name;
             new Options().ShowDialog();
         }
 
-        private void SkinTab_Load(object sender, EventArgs e)
+        private void PickaxeTab_Load(object sender, EventArgs e)
         {
-            dynamic parsed = JObject.Parse(File.ReadAllText("Api\\Skins.json"));
+            dynamic parsed = JObject.Parse(File.ReadAllText("Api\\Pickaxes.json"));
 
             foreach (var Cosmetic in parsed.items)
             {
@@ -71,7 +70,7 @@ namespace JuicySwapper_V2.Pannels
                 //newPic.ImageActive = null;
                 newPic.BackColor = Color.Transparent;
                 panelA.Controls.Add(newPic);
-                SkinDisplayIcons.Controls.Add(panelA);
+                PickaxeDisplayIcons.Controls.Add(panelA);
             }
         }
     }

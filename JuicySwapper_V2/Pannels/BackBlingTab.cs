@@ -7,45 +7,42 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JuicySwapper_V2.Pannels
 {
-    public partial class SkinTab : UserControl
+    public partial class BackBlingTab : UserControl
     {
-        public SkinTab()
+        public BackBlingTab()
         {
             InitializeComponent();
         }
 
         private void buttonOn_Click(object sender, EventArgs e)
         {
-            vars.JsonRead = "Api\\Skins.json";
+            vars.JsonRead = "Api\\BackBlings.json";
             vars.item = ((Bunifu.Framework.UI.BunifuImageButton)sender).Name;
             new SkinSwapper().ShowDialog();
         }
 
         private void buttonOn_Options_Click(object sender, EventArgs e)
         {
-            vars.JsonRead = "Api\\Skins.json";
+            vars.JsonRead = "Api\\BackBlings.json";
             vars.item = ((Bunifu.Framework.UI.BunifuImageButton)sender).Name;
             new Options().ShowDialog();
         }
 
-        private void SkinTab_Load(object sender, EventArgs e)
+        private void BackBlingTab_Load(object sender, EventArgs e)
         {
-            dynamic parsed = JObject.Parse(File.ReadAllText("Api\\Skins.json"));
+            dynamic parsed = JObject.Parse(File.ReadAllText("Api\\BackBlings.json"));
 
             foreach (var Cosmetic in parsed.items)
             {
                 string NewName = Cosmetic.name;
                 NewName = NewName.Replace("_", " ").ToLower();
-                //MessageBox.Show(NewName);
 
-                //PictureBox newPic = new();
                 Bunifu.Framework.UI.BunifuImageButton newPic = new Bunifu.Framework.UI.BunifuImageButton();
 
                 if (NewName.Contains("options"))
@@ -71,7 +68,7 @@ namespace JuicySwapper_V2.Pannels
                 //newPic.ImageActive = null;
                 newPic.BackColor = Color.Transparent;
                 panelA.Controls.Add(newPic);
-                SkinDisplayIcons.Controls.Add(panelA);
+                BackBlingDisplayIcons.Controls.Add(panelA);
             }
         }
     }

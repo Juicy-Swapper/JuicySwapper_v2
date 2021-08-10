@@ -23,6 +23,9 @@ namespace JuicySwapper_V2.Main.Forms
         public SkinSwapperOptions()
         {
             InitializeComponent();
+
+            Region = Region.FromHrgn(Ui.Round.CreateRoundRectRgn(0, 0, Width, Height, 14, 14));
+
             var MsM = MaterialSkinManager.Instance;
             MsM.AddFormToManage(this);
             MsM.Theme = MaterialSkinManager.Themes.DARK;
@@ -44,7 +47,6 @@ namespace JuicySwapper_V2.Main.Forms
                             string swapsicon = items.icon;
                             pictureBox1.ImageLocation = swapsicon.ToString();
                             Text = itemsswap.Replace("_", " ").ToString();
-                            
                         }
                     }
                 }
@@ -72,15 +74,20 @@ namespace JuicySwapper_V2.Main.Forms
                             {
                                 string mainasset = $"{asset.parentasset}.uasset";
 
-                                LogBox.Text += $"[LOG] Getting uasset\n";
-
                                 bool exportbool = Engine.ExportCompressed(mainasset.ToString(), Directory.GetCurrentDirectory());
-                                if (exportbool)
-                                    LogBox.Text += $"[LOG] Successfully Getting uasset\n";
-                                else
+                                if (!exportbool)
                                 {
                                     LogBox.Text += $"[LOG] Error Getting uasset\n";
                                     return;
+                                }
+
+                                foreach (var swap in asset.swaps)
+                                {
+                                    if (swap.log != null)
+                                    {
+                                        LogBox.Text += $"[LOG] {swap.log} removed\n";
+
+                                    }
                                 }
 
                                 Oodle.Oodle.Compress(mainasset, mainasset + "Non");
@@ -90,10 +97,11 @@ namespace JuicySwapper_V2.Main.Forms
                                 var utocTucas = CUE4Parse.Kaede.PakFile.Replace("utoc", "ucas");
 
                                 bool SwapUassetBool = Researcher.SwapUasset($"{Fortnite.GetEpicInstallLocations().FirstOrDefault(x => x.AppName == "Fortnite")?.InstallLocation}\\FortniteGame\\Content\\Paks\\{utocTucas.Replace("10", "100")}", CUE4Parse.Kaede.offset, dataswap);
-                                if (SwapUassetBool)
-                                    LogBox.Text += $"[LOG] Uasset Successfully added\n";
-                                else
+                                if (!SwapUassetBool)
+                                {
                                     LogBox.Text += $"[LOG] Error adding Uasset\n";
+                                    return;
+                                }
 
                                 try
                                 {
@@ -104,6 +112,7 @@ namespace JuicySwapper_V2.Main.Forms
 
                         }
                     }
+                    LogBox.Text += $"[LOG] Reverted!\n";
                 }
             }
         
@@ -114,7 +123,6 @@ namespace JuicySwapper_V2.Main.Forms
         private void ConvertBtn_Click(object sender, EventArgs e)
         {
             LogBox.Clear();
-            LogBox.Text += $"[LOG] Starting...\n";
 
             dynamic parsed = JObject.Parse(File.ReadAllText(vars.JsonRead.ToString()));
 
@@ -132,12 +140,8 @@ namespace JuicySwapper_V2.Main.Forms
                             {
                                 string mainasset = $"{asset.parentasset}.uasset";
 
-                                LogBox.Text += $"[LOG] Getting uasset\n";
-
                                 bool exportbool = Engine.ExportCompressed(mainasset.ToString(), Directory.GetCurrentDirectory());
-                                if (exportbool)
-                                    LogBox.Text += $"[LOG] Successfully Getting uasset\n";
-                                else
+                                if (!exportbool)
                                 {
                                     LogBox.Text += $"[LOG] Error Getting uasset\n";
                                     return;
@@ -152,16 +156,35 @@ namespace JuicySwapper_V2.Main.Forms
                                         string swap2 = swap.replace;
 
                                         bool swapbool = Researcher.ConvertInUasset(mainasset, swap1.ToString(), swap2.ToString());
-                                        if (swapbool)
-                                            LogBox.Text += $"[LOG] {swap.log}\n";
+                                        if (swap.log != null)
+                                        {
+                                            if (swapbool)
+                                                LogBox.Text += $"[LOG] {swap.log} added\n";
+                                            else
+                                            {
+                                                LogBox.Text += $"[LOG] {swap.log} error\n";
+                                                return;
+                                            }
+
+                                        }
+
                                     }
                                     else if (Researchertemp.ToLower().ToString() == "byte")
                                     {
                                         byte[] swap1 = swap.search;
                                         byte[] swap2 = swap.replace;
                                         bool swapbool = Researcher.ConvertInUasset(mainasset, swap1, swap2);
-                                        if (swapbool)
-                                            LogBox.Text += $"[LOG] {swap.log}\n";
+                                        if (!swap.log == null)
+                                        {
+                                            if (swapbool)
+                                                LogBox.Text += $"[LOG] {swap.log} added\n";
+                                            else
+                                            {
+                                                LogBox.Text += $"[LOG] {swap.log} error\n";
+                                                return;
+                                            }
+
+                                        }
                                     }
                                 }
 
@@ -172,10 +195,11 @@ namespace JuicySwapper_V2.Main.Forms
                                 var utocTucas = CUE4Parse.Kaede.PakFile.Replace("utoc", "ucas");
 
                                 bool SwapUassetBool = Researcher.SwapUasset($"{Fortnite.GetEpicInstallLocations().FirstOrDefault(x => x.AppName == "Fortnite")?.InstallLocation}\\FortniteGame\\Content\\Paks\\{utocTucas.Replace("10", "100")}", CUE4Parse.Kaede.offset, dataswap);
-                                if (SwapUassetBool)
-                                    LogBox.Text += $"[LOG] Uasset Successfully added\n";
-                                else
+                                if (!SwapUassetBool)
+                                {
                                     LogBox.Text += $"[LOG] Error adding Uasset\n";
+                                    return;
+                                }
 
                                 try
                                 {
@@ -183,6 +207,7 @@ namespace JuicySwapper_V2.Main.Forms
                                 }
                                 catch { }
                             }
+                            LogBox.Text += $"[LOG] Converted!\n";
 
                         }
                     }
