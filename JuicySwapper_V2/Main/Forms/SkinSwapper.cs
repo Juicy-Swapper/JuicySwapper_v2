@@ -44,6 +44,11 @@ namespace JuicySwapper_V2.Main.Forms
                     string swapsicon = cosmetic.swapicon;
                     pictureBox1.ImageLocation = swapsicon.ToString();
                     Text = skinsname.Replace("_", " ").ToString();
+                    if (cosmetic.ExtraInfo != null)
+                    {
+                        string info = cosmetic.ExtraInfo;
+                        MessageBox.Show(info.ToString(), $"Extra Info - {skinsname.Replace("_", " ")}");
+                    }
                 }
             }
         }
@@ -117,6 +122,8 @@ namespace JuicySwapper_V2.Main.Forms
                 string skinsname = cosmetic.name;
                 if (skinsname.ToString().Contains(vars.item))
                 {
+                    
+
                    foreach(var asset in cosmetic.assets)
                    {
                         string mainasset = $"{asset.parentasset}.uasset";

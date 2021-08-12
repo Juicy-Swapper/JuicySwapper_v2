@@ -25,6 +25,9 @@
     <Compile Update="Pannels\PickaxeTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Pannels\SettingsTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Pannels\SkinTab.cs">
       <SubType>UserControl</SubType>
     </Compile>

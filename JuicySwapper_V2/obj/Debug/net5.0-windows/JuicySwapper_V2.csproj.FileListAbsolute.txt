@@ -194,3 +194,4 @@ C:\Users\User\Desktop\Juicy\github\JuicySwapper_v2\JuicySwapper_V2\obj\Debug\net
 C:\Users\User\Desktop\Juicy\github\JuicySwapper_v2\JuicySwapper_V2\obj\Debug\net5.0-windows\JuicySwapper_V2.Pannels.EmoteTab.resources
 C:\Users\User\Desktop\Juicy\github\JuicySwapper_v2\JuicySwapper_V2\obj\Debug\net5.0-windows\JuicySwapper_V2.Pannels.MiscTab.resources
 C:\Users\User\Desktop\Juicy\github\JuicySwapper_v2\JuicySwapper_V2\obj\Debug\net5.0-windows\JuicySwapper_V2.Pannels.PickaxeTab.resources
+C:\Users\User\Desktop\Juicy\github\JuicySwapper_v2\JuicySwapper_V2\obj\Debug\net5.0-windows\JuicySwapper_V2.Pannels.SettingsTab.resources

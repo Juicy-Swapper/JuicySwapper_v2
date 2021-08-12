@@ -45,12 +45,14 @@ namespace JuicySwapper_V2
             this.MiscTab = new System.Windows.Forms.TabPage();
             this.miscTab1 = new JuicySwapper_V2.Pannels.MiscTab();
             this.SettingsTab = new System.Windows.Forms.TabPage();
+            this.settingsTab1 = new JuicySwapper_V2.Pannels.SettingsTab();
             this.materialTabControl1.SuspendLayout();
             this.SkinsTab.SuspendLayout();
             this.PickaxesTabbb.SuspendLayout();
             this.BackblingsTab.SuspendLayout();
             this.EmotesTab.SuspendLayout();
             this.MiscTab.SuspendLayout();
+            this.SettingsTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabIcons
@@ -201,6 +203,7 @@ namespace JuicySwapper_V2
             // 
             // SettingsTab
             // 
+            this.SettingsTab.Controls.Add(this.settingsTab1);
             this.SettingsTab.ImageKey = "Settings.png";
             this.SettingsTab.Location = new System.Drawing.Point(4, 39);
             this.SettingsTab.Name = "SettingsTab";
@@ -208,6 +211,15 @@ namespace JuicySwapper_V2
             this.SettingsTab.TabIndex = 5;
             this.SettingsTab.Text = "Settings";
             this.SettingsTab.UseVisualStyleBackColor = true;
+            // 
+            // settingsTab1
+            // 
+            this.settingsTab1.BackColor = System.Drawing.Color.Transparent;
+            this.settingsTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.settingsTab1.Location = new System.Drawing.Point(0, 0);
+            this.settingsTab1.Name = "settingsTab1";
+            this.settingsTab1.Size = new System.Drawing.Size(896, 306);
+            this.settingsTab1.TabIndex = 0;
             // 
             // Home
             // 
@@ -228,6 +240,7 @@ namespace JuicySwapper_V2
             this.BackblingsTab.ResumeLayout(false);
             this.EmotesTab.ResumeLayout(false);
             this.MiscTab.ResumeLayout(false);
+            this.SettingsTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -248,6 +261,7 @@ namespace JuicySwapper_V2
         private Pannels.BackBlingTab backBlingTab1;
         private Pannels.EmoteTab emoteTab1;
         private Pannels.MiscTab miscTab1;
+        private Pannels.SettingsTab settingsTab1;
     }
 }
 
