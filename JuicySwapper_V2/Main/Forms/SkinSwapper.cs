@@ -131,6 +131,7 @@ namespace JuicySwapper_V2.Main.Forms
                         foreach (var swap in asset.swaps)
                         {
                             string Researchertemp = swap.Researcher;
+                            //MessageBox.Show(Researchertemp.ToLower().ToString());
                             if (Researchertemp.ToLower().ToString() == "string")
                             {
                                 string swap1 = swap.search;
@@ -152,9 +153,9 @@ namespace JuicySwapper_V2.Main.Forms
                             }
                             else if (Researchertemp.ToLower().ToString() == "byte")
                             {
-                                byte[] swap1 = swap.search;
-                                byte[] swap2 = swap.replace;
-                                bool swapbool = Researcher.ConvertInUasset(mainasset, swap1, swap2);
+                                byte[] swap1 = Convert.FromBase64String(swap.search);
+                                byte[] swap2 = Convert.FromBase64String(swap.replace);
+                                bool swapbool = Researcher.ConvertInUasset(mainasset, Encoding.UTF8.GetString(swap1), Encoding.UTF8.GetString(swap2));
                                 if (!swap.log == null)
                                 {
                                     if (swapbool)

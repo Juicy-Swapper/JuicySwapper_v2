@@ -31,20 +31,21 @@ namespace JuicySwapper_V2
             var Pickaxe = webdownload.DownloadString("https://juicyswapper.netlify.app/api/v1/Pickaxes.json");
             var BackBling = webdownload.DownloadString("https://juicyswapper.netlify.app/api/v1/BackBlings.json");
             var Emote = webdownload.DownloadString("https://juicyswapper.netlify.app/api/v1/Emotes.json");
+            var API = Directory.GetCurrentDirectory() + "\\Api";
 
-            if (Directory.Exists("Api"))
+            if (Directory.Exists(API))
             {
-                PaksLocations.DeleteDirectory("Api");
+                PaksLocations.DeleteDirectory(API);
                 Thread.Sleep(100);
-                Directory.CreateDirectory("Api");
+                Directory.CreateDirectory(API);
             }
             else
-                Directory.CreateDirectory("Api");
+                Directory.CreateDirectory(API);
 
-            File.WriteAllText("Api/Skins.json", Skin);
-            File.WriteAllText("Api/Pickaxes.json", Pickaxe);
-            File.WriteAllText("Api/BackBlings.json", BackBling);
-            File.WriteAllText("Api/Emotes.json", Emote);
+            File.WriteAllText($"{API}\\Skins.json", Skin);
+            File.WriteAllText($"{API}\\Pickaxes.json", Pickaxe);
+            File.WriteAllText($"{API}\\BackBlings.json", BackBling);
+            File.WriteAllText($"{API}\\Emotes.json", Emote);
 
             PaksSorter a = new();
             a.ShowDialog();
