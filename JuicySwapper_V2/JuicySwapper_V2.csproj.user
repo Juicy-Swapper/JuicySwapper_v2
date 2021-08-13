@@ -16,6 +16,9 @@
     <Compile Update="Pannels\BackBlingTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Pannels\DashBoardTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Pannels\EmoteTab.cs">
       <SubType>UserControl</SubType>
     </Compile>

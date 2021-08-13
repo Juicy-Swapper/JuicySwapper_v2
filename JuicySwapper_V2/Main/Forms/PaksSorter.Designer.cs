@@ -52,7 +52,7 @@ namespace JuicySwapper_V2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 169);
+            this.ClientSize = new System.Drawing.Size(390, 197);
             this.Controls.Add(this.Textlb);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

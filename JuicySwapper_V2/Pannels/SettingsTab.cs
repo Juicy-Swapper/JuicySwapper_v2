@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -53,6 +54,30 @@ namespace JuicySwapper_V2.Pannels
                 }
             }
             MessageBox.Show("All items where reverted!", "Juicy Swapper v2 - Items Done!");
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            var exestart = $"{Fortnite.GetEpicInstallLocations().FirstOrDefault(x => x.AppName == "Fortnite")?.InstallLocation}\\FortniteGame\\Binaries\\Win64\\FortniteClient-Win64-Shipping_EAC.exe";
+
+            Process.Start(exestart);
+
+            timer1.Enabled = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            foreach (Process process in Process.GetProcessesByName("Fortnite.exe"))
+            {
+                foreach (Process a in Process.GetProcessesByName("EpicGamesLauncher.exe"))
+                {
+                    a.Kill();
+                    MessageBox.Show("Verification files bypass please click ok when you wanna close fortnite!", "Juicy Swapper v2");
+                    process.Kill();
+                    timer1.Enabled = false;
+                }
+            }
+
         }
     }
 }

@@ -35,11 +35,11 @@ namespace JuicySwapper_V2
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Textlb.Text = "Please wait untill we sort out your paks.\nPlease be pationt as this might take up to a minite or two\nThis will auto close once everting is done!\nThis will take longer if your on a hdd.\nEnjoy Swapping - Juicy Team.";
+            Textlb.Text = "Please DO NOT CLOSE this form\nPlease wait untill we sort out your paks.\nPlease be patient as this might take up to a minute or two\nThis will auto close once everting is done!\nThis will take longer if your on a hdd.\nEnjoy Swapping - Juicy Team.";
 
             PaksLocations.pastintem();
 
-            Thread.Sleep(1000);
+            Thread.Sleep(10000);
 
             Close();
         }

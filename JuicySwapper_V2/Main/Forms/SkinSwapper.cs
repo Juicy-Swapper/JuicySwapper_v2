@@ -43,6 +43,7 @@ namespace JuicySwapper_V2.Main.Forms
                 {
                     string swapsicon = cosmetic.swapicon;
                     pictureBox1.ImageLocation = swapsicon.ToString();
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                     Text = skinsname.Replace("_", " ").ToString();
                     if (cosmetic.ExtraInfo != null)
                     {

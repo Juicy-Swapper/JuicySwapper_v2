@@ -7,6 +7,7 @@ using System.Drawing;
 using JuicySwapper_V2.Main.Classes;
 using System.Net;
 using System.Threading;
+using JuicySwapper_V2.Properties;
 
 namespace JuicySwapper_V2
 {
@@ -25,27 +26,60 @@ namespace JuicySwapper_V2
 
             materialTabControl1.Region = Region.FromHrgn(Ui.Round.CreateRoundRectRgn(0, 0, Width, Height, 14, 14));
 
-            WebClient webdownload = new();
-
-            var Skin = webdownload.DownloadString("https://juicyswapper.netlify.app/api/v1/Skins.json");
-            var Pickaxe = webdownload.DownloadString("https://juicyswapper.netlify.app/api/v1/Pickaxes.json");
-            var BackBling = webdownload.DownloadString("https://juicyswapper.netlify.app/api/v1/BackBlings.json");
-            var Emote = webdownload.DownloadString("https://juicyswapper.netlify.app/api/v1/Emotes.json");
-            var API = Directory.GetCurrentDirectory() + "\\Api";
-
-            if (Directory.Exists(API))
+            if(Settings.Default.DebugAPI == null)
             {
-                PaksLocations.DeleteDirectory(API);
-                Thread.Sleep(100);
-                Directory.CreateDirectory(API);
+                WebClient webdownload = new();
+
+                var Skin = webdownload.DownloadString("https://juicyswapper.netlify.app/api/v1/Skins.json");
+                var Pickaxe = webdownload.DownloadString("https://juicyswapper.netlify.app/api/v1/Pickaxes.json");
+                var BackBling = webdownload.DownloadString("https://juicyswapper.netlify.app/api/v1/BackBlings.json");
+                var Emote = webdownload.DownloadString("https://juicyswapper.netlify.app/api/v1/Emotes.json");
+                var API = Directory.GetCurrentDirectory() + "\\Api";
+
+                if (Directory.Exists(API))
+                {
+                    PaksLocations.DeleteDirectory(API);
+                    Thread.Sleep(100);
+                    Directory.CreateDirectory(API);
+                }
+                else
+                    Directory.CreateDirectory(API);
+
+                File.WriteAllText($"{API}\\Skins.json", Skin);
+                File.WriteAllText($"{API}\\Pickaxes.json", Pickaxe);
+                File.WriteAllText($"{API}\\BackBlings.json", BackBling);
+                File.WriteAllText($"{API}\\Emotes.json", Emote);
             }
             else
-                Directory.CreateDirectory(API);
+            {
+                var API = Directory.GetCurrentDirectory() + "\\Api";
+                if (Directory.Exists(API))
+                {
+                    PaksLocations.DeleteDirectory(API);
+                    Thread.Sleep(100);
+                    Directory.CreateDirectory(API);
+                }
+                else
+                    Directory.CreateDirectory(API);
 
-            File.WriteAllText($"{API}\\Skins.json", Skin);
-            File.WriteAllText($"{API}\\Pickaxes.json", Pickaxe);
-            File.WriteAllText($"{API}\\BackBlings.json", BackBling);
-            File.WriteAllText($"{API}\\Emotes.json", Emote);
+                
+                var pathDEBUG = Settings.Default.DebugAPI;
+                foreach (var json in Directory.GetFiles(pathDEBUG))
+                {
+                    MessageBox.Show(json);
+                    var apistrings = File.ReadAllText(json);
+                    var name = Path.GetFileName(json);
+                    File.WriteAllText($"{API}\\{name}", apistrings);
+
+                }
+                
+
+                Settings.Default.DebugAPI = null;
+                Settings.Default.Save();
+
+               
+            }
+            
 
             PaksSorter a = new();
             a.ShowDialog();

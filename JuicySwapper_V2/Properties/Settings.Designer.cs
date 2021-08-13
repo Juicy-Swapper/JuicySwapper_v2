@@ -22,5 +22,17 @@ namespace JuicySwapper_V2.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DebugAPI {
+            get {
+                return ((string)(this["DebugAPI"]));
+            }
+            set {
+                this["DebugAPI"] = value;
+            }
+        }
     }
 }
