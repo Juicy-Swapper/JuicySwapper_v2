@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("JuicySwapper_V2_Launcher")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Launcher for juicy swapper")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Juicy Swapper")]
 [assembly: AssemblyProduct("JuicySwapper_V2_Launcher")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCopyright("Copyright © JuicySwapper 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

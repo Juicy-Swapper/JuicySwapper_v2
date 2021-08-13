@@ -47,6 +47,15 @@ namespace JuicySwapper_V2_Launcher
                 Directory.CreateDirectory(InstallFolder);
             }
             Process Swapper;
+            Swapper = new Process
+            {
+                StartInfo = new ProcessStartInfo(exe)
+                {
+                    UseShellExecute = true,
+                    WorkingDirectory = InstallFolder,
+                    Arguments = "-SwapperToken=bRKNnvyHNRZaWVrVuTLi"
+                },
+            };
             Logs.Warn("Please disable antivirus or whitelist Juicy Swapper v2 (Beta) before use or it might cause issues.\n\n\n");
 
             Title();
@@ -90,14 +99,6 @@ namespace JuicySwapper_V2_Launcher
                             Thread.Sleep(1000);
 
                             Logs.Info("Finished! Launching Juicy Swapper v2...");
-                            Swapper = new Process
-                            {
-                                StartInfo = new ProcessStartInfo(exe)
-                                {
-                                    UseShellExecute = true,
-                                    WorkingDirectory = InstallFolder
-                                },
-                            };
                             Swapper.Start();
                             Thread.Sleep(3000);
                             Environment.Exit(0);
@@ -117,19 +118,9 @@ namespace JuicySwapper_V2_Launcher
                 else
                 {
                     Logs.Info("Launching Juicy Swapper v2...");
-                    Thread.Sleep(2000);
-
-                    Swapper = new Process
-                    {
-                        StartInfo = new ProcessStartInfo(exe)
-                        {
-                            UseShellExecute = true,
-                            WorkingDirectory = InstallFolder
-                        },
-                    };
                     Swapper.Start();
 
-                    Thread.Sleep(1000);
+                    Thread.Sleep(3000);
                     Environment.Exit(0);
                 }
             }
@@ -151,15 +142,6 @@ namespace JuicySwapper_V2_Launcher
 
                         Thread.Sleep(1000);
                         Logs.Info("Finished! Launching Juicy Swapper v2...");
-
-                        Swapper = new Process
-                        {
-                            StartInfo = new ProcessStartInfo(exe)
-                            {
-                                UseShellExecute = true,
-                                WorkingDirectory = InstallFolder
-                            },
-                        };
                         Swapper.Start();
 
                         Thread.Sleep(3000);

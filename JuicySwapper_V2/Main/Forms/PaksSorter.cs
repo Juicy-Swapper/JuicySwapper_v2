@@ -39,7 +39,7 @@ namespace JuicySwapper_V2
 
             PaksLocations.pastintem();
 
-            Thread.Sleep(10000);
+            Thread.Sleep(1000);
 
             Close();
         }

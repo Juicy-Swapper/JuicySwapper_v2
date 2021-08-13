@@ -13,18 +13,57 @@ namespace JuicySwapper_V2
         static void Main(string[] args)
         {
             Settings.Default.DebugAPI = null;
-            foreach (var arg in args)
-            {
-                if (arg.Contains("-Debugpath="))
-                {
-                    var debugpath = arg.Replace("-Debugpath=", "");
+            bool see = false;
 
-                    MessageBox.Show(debugpath);
-                    Settings.Default.DebugAPI = "C:\\Users\\User\\Desktop\\Juicy\\github\\Website\\api\\v1";
-                    Settings.Default.Save();
-                    
+#if DEBUG
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Home());
+#endif
+
+            if (args == null || args.Length == 0)
+            {
+                MessageBox.Show("Please use our launcher!");
+                return;
+            }
+            else
+            {
+                foreach (var arg in args)
+                {
+
+                    if (arg.Contains("-Debugpath="))
+                    {
+                        var a = arg.Replace("-Debugpath=", "");
+
+                        Settings.Default.DebugAPI = a;
+                        Settings.Default.Save();
+
+                    }
+
+                    if (arg.Contains("-SwapperToken="))
+                    {
+                        see = true;
+
+                        var a = arg.Replace("-SwapperToken=", "");
+
+                        if (a != "bRKNnvyHNRZaWVrVuTLi")
+                        {
+                            MessageBox.Show("Please use our launcher error:1 !");
+                            return;
+                        }
+                        Settings.Default.Save();
+
+                    }
                 }
             }
+
+            if(see == false)
+            {
+                MessageBox.Show("Please use our launcher error:2 !");
+                return;
+            }
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
