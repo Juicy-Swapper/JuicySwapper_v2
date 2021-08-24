@@ -70,6 +70,7 @@ namespace JuicySwapper_V2.Main.Forms
                         string itemsswap = items.name;
                         if (itemsswap.ToString().Contains(vars.optionskin))
                         {
+
                             foreach (var asset in items.assets)
                             {
                                 string mainasset = $"{asset.parentasset}.uasset";
@@ -123,6 +124,7 @@ namespace JuicySwapper_V2.Main.Forms
         private void ConvertBtn_Click(object sender, EventArgs e)
         {
             LogBox.Clear();
+            LogBox.Text += $"[LOG] Starting...\n";
 
             dynamic parsed = JObject.Parse(File.ReadAllText(vars.JsonRead.ToString()));
 

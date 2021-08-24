@@ -135,7 +135,10 @@ namespace JuicySwapper_V2.Main.Forms
                             LogBox.Text += $"[LOG] Error Getting uasset\n";
                             return;
                         }
-                            
+
+                        //Researcher.DelStructs(mainasset);
+
+
                         foreach (var swap in asset.swaps)
                         {
                             string Researchertemp = swap.Researcher;

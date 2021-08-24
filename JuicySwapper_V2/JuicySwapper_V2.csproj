@@ -4,9 +4,14 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
-    <FileVersion>1.0.0.1</FileVersion>
+    <AssemblyVersion>1.0.0.4</AssemblyVersion>
+    <FileVersion>1.0.0.4</FileVersion>
     <ApplicationIcon>testingthis_471_icon.ico</ApplicationIcon>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,14 +29,14 @@
 
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>Bunifu_UI_v1.5.3.dll</HintPath>
-    </Reference>
-    <Reference Include="DiscordRPC">
-      <HintPath>DiscordRPC.dll</HintPath>
+      <HintPath>bin\Debug\net5.0-windows\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Main\Forms\SkinSwapperCP.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Main\Forms\SkinSwapperOptions.cs" />
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>

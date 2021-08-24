@@ -4,11 +4,49 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JuicySwapper_V2.IO
 {
     class Researcher
     {
+        public static string[] Structs =
+        {
+            "Default__CustomCharacterPart",
+            "CustomCharacterHatData",
+            "Default__CustomCharacterHatData",
+            "ObjectProperty",
+            "AdditionalData",
+            "BodyTypesPermitted",
+            "ByteProperty",
+            "CharacterPartType",
+            "$Default__CustomCharacterBodyPartData",
+            "GenderPermitted",
+            "Default__CustomCharacterFaceData",
+        };
+
+        public static int a = 0;
+        public static int b = 0;
+
+        public static void DelStructs(string uasset)
+        {
+            foreach (var structs in Structs)
+            {
+                a += 1;
+                try
+                {
+                    Researcher.ConvertInUasset(uasset, structs, "");
+                }
+                catch
+                {
+                    b += 1;
+                }
+            }
+            MessageBox.Show($"Stru = {a.ToString()},Not swapped = {b.ToString()}");
+            a = 0;
+            b = 0;
+        }
+
         public static bool SwapUasset(string a, long b, byte[] c)
         {
             try 

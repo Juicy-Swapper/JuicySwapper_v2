@@ -28,6 +28,13 @@ namespace JuicySwapper_V2.Pannels
             new SkinSwapper().ShowDialog();
         }
 
+        private void buttonOn_CP_Click(object sender, EventArgs e)
+        {
+            vars.JsonRead = "Api\\Skins.json";
+            vars.item = ((Bunifu.Framework.UI.BunifuImageButton)sender).Name;
+            new SkinSwapperCP().ShowDialog();
+        }
+
         private void buttonOn_Options_Click(object sender, EventArgs e)
         {
             vars.JsonRead = "Api\\Skins.json";
@@ -37,8 +44,22 @@ namespace JuicySwapper_V2.Pannels
 
         private void SkinTab_Load(object sender, EventArgs e)
         {
-            dynamic parsed = JObject.Parse(File.ReadAllText("Api\\Skins.json"));
+            Font font = new Font("Microsoft Sans Serif", 12.0f,
+                        FontStyle.Bold );
 
+            Label label = new Label
+            {
+                Size = new Size(760, 35),
+                Text = "Mesh Skins - Backblings work",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = font
+            };
+            SkinDisplayIcons.Controls.Add(label);
+
+
+
+            dynamic parsed = JObject.Parse(File.ReadAllText("Api\\Skins.json"));
+            
             foreach (var Cosmetic in parsed.items)
             {
                 string NewName = Cosmetic.name;
@@ -48,30 +69,83 @@ namespace JuicySwapper_V2.Pannels
                 //PictureBox newPic = new();
                 Bunifu.Framework.UI.BunifuImageButton newPic = new Bunifu.Framework.UI.BunifuImageButton();
 
-                if (NewName.Contains("options"))
+                if (NewName.Contains("cp"))
                 {
-                    newPic.Click += buttonOn_Options_Click;
+                    //nothing
                 }
                 else
                 {
-                    newPic.Click += buttonOn_Click;
+                    if (NewName.Contains("options"))
+                    {
+                        newPic.Click += buttonOn_Options_Click;
+                    }
+                    else
+                        newPic.Click += buttonOn_Click;
+
+
+                    Panel panelA = new Panel
+                    {
+                        Size = new Size(76, 76),
+                        BackColor = Color.Transparent
+                    };
+
+                    newPic.ImageLocation = Cosmetic.icon;
+                    newPic.Name = Cosmetic.name;
+                    Cursor = Cursors.Hand;
+                    newPic.SizeMode = PictureBoxSizeMode.Zoom;
+                    newPic.Size = new Size(71, 71);
+                    //newPic.ImageActive = null;
+                    newPic.BackColor = Color.Transparent;
+                    panelA.Controls.Add(newPic);
+                    SkinDisplayIcons.Controls.Add(panelA);
                 }
 
-                Panel panelA = new Panel
-                {
-                    Size = new Size(76, 76),
-                    BackColor = Color.Transparent
-                };
+                
+            }
 
-                newPic.ImageLocation = Cosmetic.icon;
-                newPic.Name = Cosmetic.name;
-                Cursor = Cursors.Hand;
-                newPic.SizeMode = PictureBoxSizeMode.Zoom;
-                newPic.Size = new Size(71, 71);
-                //newPic.ImageActive = null;
-                newPic.BackColor = Color.Transparent;
-                panelA.Controls.Add(newPic);
-                SkinDisplayIcons.Controls.Add(panelA);
+            Label label1 = new Label
+            {
+                Size = new Size(760, 35),
+                Text = "CP Skins - Backblings DONT work",
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = font
+            };
+
+            SkinDisplayIcons.Controls.Add(label1);
+            foreach (var Cosmetic in parsed.items)
+            {
+                string NewName = Cosmetic.name;
+                NewName = NewName.Replace("_", " ").ToLower();
+                //MessageBox.Show(NewName);
+
+                //PictureBox newPic = new();
+                Bunifu.Framework.UI.BunifuImageButton newPic = new Bunifu.Framework.UI.BunifuImageButton();
+
+                if (!NewName.Contains("cp"))
+                {
+                    //nothing
+                }
+                else
+                {
+                    newPic.Click += buttonOn_CP_Click;
+
+
+                    Panel panelA = new Panel
+                    {
+                        Size = new Size(76, 76),
+                        BackColor = Color.Transparent
+                    };
+
+                    newPic.ImageLocation = Cosmetic.icon;
+                    newPic.Name = Cosmetic.name;
+                    Cursor = Cursors.Hand;
+                    newPic.SizeMode = PictureBoxSizeMode.Zoom;
+                    newPic.Size = new Size(71, 71);
+                    //newPic.ImageActive = null;
+                    newPic.BackColor = Color.Transparent;
+                    panelA.Controls.Add(newPic);
+                    SkinDisplayIcons.Controls.Add(panelA);
+                }
             }
         }
     }

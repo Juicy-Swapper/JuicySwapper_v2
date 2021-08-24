@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31606.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuicySwapper_V2", "JuicySwapper_V2\JuicySwapper_V2.csproj", "{7CF7DB07-B3DD-4D2E-8C9D-17E8BC69AAD4}"
 EndProject
@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CUE4Parse", "CUE4Parse\CUE4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuicySwapper_V2_PaksUpdater", "JuicySwapper_V2_PaksUpdater\JuicySwapper_V2_PaksUpdater.csproj", "{24B1DBB7-0AD2-4D89-A79B-D4D6FB0CAA27}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuicySwapper_V2_Updater", "JuicySwapper_V2_Updater\JuicySwapper_V2_Updater.csproj", "{E5A018EE-EF75-4E82-B08C-9B94298EC47A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuicySwapper_V2_Launcher", "JuicySwapper_V2_Launcher\JuicySwapper_V2_Launcher.csproj", "{B8D3E750-5864-4207-9F9E-9C27236D9A5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuicySwapper_V2_CpGenerator", "JuicySwapper_V2_CpGenerator\JuicySwapper_V2_CpGenerator.csproj", "{261AC000-4323-4528-8C7F-C0DF214CFCCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{24B1DBB7-0AD2-4D89-A79B-D4D6FB0CAA27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24B1DBB7-0AD2-4D89-A79B-D4D6FB0CAA27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24B1DBB7-0AD2-4D89-A79B-D4D6FB0CAA27}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E5A018EE-EF75-4E82-B08C-9B94298EC47A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5A018EE-EF75-4E82-B08C-9B94298EC47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5A018EE-EF75-4E82-B08C-9B94298EC47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5A018EE-EF75-4E82-B08C-9B94298EC47A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B8D3E750-5864-4207-9F9E-9C27236D9A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B8D3E750-5864-4207-9F9E-9C27236D9A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8D3E750-5864-4207-9F9E-9C27236D9A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8D3E750-5864-4207-9F9E-9C27236D9A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{261AC000-4323-4528-8C7F-C0DF214CFCCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{261AC000-4323-4528-8C7F-C0DF214CFCCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{261AC000-4323-4528-8C7F-C0DF214CFCCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{261AC000-4323-4528-8C7F-C0DF214CFCCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

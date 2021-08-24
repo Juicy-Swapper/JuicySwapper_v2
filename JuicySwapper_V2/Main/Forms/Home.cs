@@ -66,7 +66,6 @@ namespace JuicySwapper_V2
                 var pathDEBUG = Settings.Default.DebugAPI;
                 foreach (var json in Directory.GetFiles(pathDEBUG))
                 {
-                    MessageBox.Show(json);
                     var apistrings = File.ReadAllText(json);
                     var name = Path.GetFileName(json);
                     File.WriteAllText($"{API}\\{name}", apistrings);
