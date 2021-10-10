@@ -29,8 +29,16 @@ namespace JuicySwapper_V2.Pannels
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // MiscTab
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "MiscTab";
+            this.Size = new System.Drawing.Size(943, 417);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

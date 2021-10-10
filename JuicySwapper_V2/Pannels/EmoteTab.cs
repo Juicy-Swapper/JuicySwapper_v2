@@ -33,6 +33,12 @@ namespace JuicySwapper_V2.Pannels
             vars.item = ((Bunifu.Framework.UI.BunifuImageButton)sender).Name;
             new Options().ShowDialog();
         }
+        private void buttonOn_TFE_Click(object sender, EventArgs e)
+        {
+            vars.JsonRead = "Api\\Emotes.json";
+            vars.item = ((Bunifu.Framework.UI.BunifuImageButton)sender).Name;
+            new EmoteSwapperTakeElf().ShowDialog();
+        }
 
         private void EmoteTab_Load(object sender, EventArgs e)
         {
@@ -50,6 +56,11 @@ namespace JuicySwapper_V2.Pannels
                 if (NewName.Contains("options"))
                 {
                     newPic.Click += buttonOn_Options_Click;
+                }
+                else if (Cosmetic.type == "specialTake")
+                {
+                    newPic.Click += buttonOn_TFE_Click;
+                    
                 }
                 else
                 {

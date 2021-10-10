@@ -34,6 +34,7 @@ namespace JuicySwapper_V2.Pannels
             // 
             // EmoteDisplayIcons
             // 
+            this.EmoteDisplayIcons.AutoScroll = true;
             this.EmoteDisplayIcons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmoteDisplayIcons.Location = new System.Drawing.Point(0, 0);
             this.EmoteDisplayIcons.Name = "EmoteDisplayIcons";

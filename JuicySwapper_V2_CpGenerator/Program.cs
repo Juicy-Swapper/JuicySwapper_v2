@@ -27,10 +27,11 @@ namespace JuicySwapper_V2_CpGenerator
         
         static void Main(string[] args)
         {
-            ids();
+            Emotes.getthem();
+            //ids();
         }
 
-        private static string AES()
+        public static string AES()
         {
             dynamic parse = JObject.Parse(new WebClient().DownloadString("https://benbot.app/api/v1/aes"));
             return parse.mainKey;

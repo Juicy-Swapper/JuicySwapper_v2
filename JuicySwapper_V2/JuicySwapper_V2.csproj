@@ -5,7 +5,7 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyVersion>1.0.0.4</AssemblyVersion>
-    <FileVersion>1.0.0.4</FileVersion>
+    <FileVersion>1.0.0.5</FileVersion>
     <ApplicationIcon>testingthis_471_icon.ico</ApplicationIcon>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
@@ -34,6 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Main\Forms\EmoteSwapperTakeElf.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Main\Forms\SkinSwapperCP.cs">
       <SubType>Form</SubType>
     </Compile>

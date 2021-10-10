@@ -1,4 +1,5 @@
 ﻿using JuicySwapper_V2.Main.Classes;
+using JuicySwapper_V2.Main.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,6 +79,12 @@ namespace JuicySwapper_V2.Pannels
                 }
             }
 
+        }
+
+        private void materialButton3_Click(object sender, EventArgs e)
+        {
+            var a = new EmoteCreator();
+            a.ShowDialog    ();
         }
     }
 }
